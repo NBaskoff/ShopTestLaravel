@@ -27,6 +27,8 @@ class ApiPricesPost extends FormRequest
     {
         return [
             "prices" => "required|array",
+            "prices.*.guid" => "required",
+            "prices.*.price" => "required|numeric|max:500000|min:1",
         ];
     }
 
@@ -41,11 +43,11 @@ class ApiPricesPost extends FormRequest
     /**
      * @return string[]
      */
-    public function messages(): array
+/*    public function messages(): array
     {
         return [
             "prices.required" => "Значение prices обязательно для заполнения",
             "prices.array" => "Значение prices должно быть массивом",
         ];
-    }
+    }*/
 }
